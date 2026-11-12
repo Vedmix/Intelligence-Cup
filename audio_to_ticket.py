@@ -5,7 +5,7 @@ from pathlib import Path
 from datetime import datetime
 
 # Пути к файлам
-audio_path = Path("data/2.mp3")
+audio_path = Path("data/1.mp3")
 output_dir = Path("data/tickets")
 
 # Проверяем наличие аудиозаписи
