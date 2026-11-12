@@ -108,19 +108,19 @@ Hermes Agent выступает в роли основного оркестра�
 ## Структура репозитория
 
 ```text
-Test-Case/
+Intelligence-Cup/
 │
 ├── data/
-│   ├── tickets/
-│   │   └── README.md
-│   ├── tickets.csv
-│   ├── solutions.csv
-│   └── 1.mp3
+│   └── tickets/
+│       ├── BZ/
+│       ├── RHEL/
+│       └── README.md
 │
 ├── hermes-rag/
 │   ├── index/
 │   │   ├── embeddings.npy
 │   │   └── metadata.json
+│   ├── .gitignore
 │   ├── search.py
 │   ├── semantic_search.py
 │   ├── requirements.txt
@@ -129,20 +129,25 @@ Test-Case/
 ├── promts/
 │   └── system-prompt.md
 │
+├── results/
+│   ├── hermes_test_results.csv
+│   └── hermes_test_pairs.csv
+│
+├── source/
+│   ├── audio_to_ticket.py
+│   ├── build_tickets_table.py
+│   ├── credentials-example.json
+│   ├── image_parser.py
+│   ├── mail_parser.py
+│   └── mail_to_ticket.py
+│
+├── startup/
+│   └── quickstart.py
+│
 ├── tests/
 │   └── test_all_tickets.py
 │
-├── results/
-│   ├── hermes_test_results.csv
-│   ├── hermes_test_pairs.csv
-│   └── hermes_test_raw.jsonl
-│
-├── audio_to_ticket.py
-├── build_tickets_table.py
-├── image_parser.py
-├── mail_parser.py
-├── mail_to_ticket.py
-├── quickstart.py
+├── agent_architecture.drawio.png
 ├── requirements.txt
 └── README.md
 ```
@@ -151,15 +156,21 @@ Test-Case/
 
 | Файл | Назначение |
 |---|---|
-| `audio_to_ticket.py` | Распознавание аудио и формирование тикета |
-| `mail_to_ticket.py` | Получение писем и организация их обработки |
-| `mail_parser.py` | Извлечение текста писем и обработка вложений |
-| `image_parser.py` | Анализ изображений |
-| `build_tickets_table.py` | Формирование CSV-таблиц тикетов и решений |
+| `source/audio_to_ticket.py` | Распознавание аудио и формирование тикета |
+| `source/mail_to_ticket.py` | Получение писем и организация их обработки |
+| `source/mail_parser.py` | Извлечение текста писем и обработка вложений |
+| `source/image_parser.py` | Анализ изображений |
+| `source/build_tickets_table.py` | Формирование CSV-таблиц тикетов и решений |
+| `source/credentials-example.json` | Пример файла авторизационных данных Gmail API |
+| `startup/quickstart.py` | Пример авторизации в Gmail API и проверки доступа |
 | `hermes-rag/search.py` | Поиск BM25 |
 | `hermes-rag/semantic_search.py` | Семантический поиск |
+| `hermes-rag/index/` | Локальный индекс эмбеддингов (`embeddings.npy`) и метаданные (`metadata.json`) |
+| `data/tickets/` | Карточки обращений базы знаний (`BZ/`, `RHEL/`) и их общий указатель `README.md` |
 | `promts/system-prompt.md` | Системные инструкции Hermes Agent |
 | `tests/test_all_tickets.py` | Пакетное тестирование агента |
+| `results/` | Результаты тестирования агента |
+| `agent_architecture.drawio.png` | Схема архитектуры проекта |
 
 ## Установка и настройка
 
